@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rehan Muhammad — exact algorithms, systems programming, agent infrastructure</title>
+<meta name="description" content="Independent researcher working on exact algorithms for NP-complete problems, RISC-V kernel memory management, and consent-based infrastructure that lets AI agents operate real machines.">
+<meta name="author" content="Rehan Muhammad">
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Rehan Muhammad — Independent Researcher">
+<meta property="og:description" content="Exact algorithms · systems programming · agent infrastructure. Author of Z++, a 49-engine exact subset-sum solver.">
+<meta property="og:site_name" content="Rehan Theory Lab">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230d1117'/%3E%3Ctext x='50' y='68' font-family='Helvetica,Arial' font-size='42' font-weight='700' text-anchor='middle' fill='%2358a6ff'%3ERM%3C/text%3E%3C/svg%3E">
+<style>
+  :root{
+    --bg:#0d1117; --bg-soft:#161b22; --line:#21262d; --line-2:#30363d;
+    --fg:#e6edf3; --fg-dim:#8b949e; --fg-mute:#6e7681;
+    --blue:#58a6ff; --purple:#a371f7; --green:#3fb950; --amber:#d29922;
+    --mono:'SFMono-Regular',Consolas,'Liberation Mono',Menlo,monospace;
+    --sans:'Segoe UI',-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif;
+    --max:1080px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0; background:var(--bg); color:var(--fg);
+    font-family:var(--sans); line-height:1.65; -webkit-font-smoothing:antialiased;
+    background-image:radial-gradient(circle at 1px 1px,rgba(48,54,61,.55) 1px,transparent 0);
+    background-size:22px 22px;
+  }
+  a{color:var(--blue); text-decoration:none}
+  a:hover{text-decoration:underline}
+  .wrap{max-width:var(--max); margin:0 auto; padding:0 28px}
+
+  /* ---------- hero ---------- */
+  header.hero{padding:96px 0 72px; position:relative; overflow:hidden}
+  header.hero::before{
+    content:""; position:absolute; inset:-40% 40% 40% -20%;
+    background:radial-gradient(circle,rgba(88,166,255,.20),transparent 62%);
+    pointer-events:none; animation:breathe 9s ease-in-out infinite;
+  }
+  header.hero::after{
+    content:""; position:absolute; inset:50% -25% -30% 55%;
+    background:radial-gradient(circle,rgba(163,113,247,.17),transparent 62%);
+    pointer-events:none; animation:breathe 9s 3s ease-in-out infinite;
+  }
+  @keyframes breathe{0%,100%{opacity:.55}50%{opacity:1}}
+
+  .eyebrow{
+    font-family:var(--mono); font-size:11.5px; letter-spacing:4px; font-weight:600;
+    color:var(--fg-dim); margin:0 0 22px;
+  }
+  h1{
+    font-size:clamp(2.4rem,6vw,4.1rem); line-height:1.04; margin:0 0 20px;
+    letter-spacing:-.02em; font-weight:700;
+  }
+  h1 .grad{
+    background:linear-gradient(100deg,var(--blue) 10%,var(--purple) 70%);
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .lede{font-size:clamp(1.02rem,2vw,1.2rem); color:var(--fg-dim); max-width:62ch; margin:0 0 34px}
+  .lede strong{color:var(--fg); font-weight:600}
+
+  .cta{display:flex; gap:12px; flex-wrap:wrap}
+  .btn{
+    display:inline-flex; align-items:center; gap:9px; padding:11px 20px; border-radius:9px;
+    font-size:14.5px; font-weight:600; border:1px solid var(--line-2); color:var(--fg);
+    background:var(--bg-soft); transition:.16s ease;
+  }
+  .btn:hover{text-decoration:none; border-color:var(--blue); transform:translateY(-1px)}
+  .btn.primary{background:linear-gradient(100deg,var(--blue),var(--purple)); border-color:transparent; color:#08111f}
+  .btn.primary:hover{filter:brightness(1.08)}
+
+  /* ---------- sections ---------- */
+  section{padding:74px 0; border-top:1px solid var(--line)}
+  .sec-head{display:flex; align-items:center; gap:18px; margin:0 0 34px}
+  .sec-head h2{
+    font-family:var(--mono); font-size:12px; letter-spacing:4px; font-weight:600;
+    color:var(--blue); margin:0; white-space:nowrap;
+  }
+  .sec-head .rule{flex:1; height:1px; background:var(--line)}
+
+  /* research cards */
+  .grid-3{display:grid; grid-template-columns:repeat(auto-fit,minmax(268px,1fr)); gap:18px}
+  .card{
+    background:var(--bg-soft); border:1px solid var(--line-2); border-radius:13px;
+    padding:24px 22px; transition:.18s ease;
+  }
+  .card:hover{border-color:var(--blue); transform:translateY(-2px)}
+  .card .num{
+    display:inline-flex; align-items:center; justify-content:center; width:26px; height:26px;
+    border-radius:50%; border:1.5px solid var(--blue); color:var(--blue);
+    font-family:var(--mono); font-size:12px; font-weight:700; margin-bottom:13px;
+  }
+  .card h3{margin:0 0 8px; font-size:12.5px; letter-spacing:2.4px; font-weight:700}
+  .card p{margin:0; color:var(--fg-dim); font-size:14.5px}
+
+  /* project cards */
+  .grid-2{display:grid; grid-template-columns:repeat(auto-fit,minmax(330px,1fr)); gap:18px}
+  .proj{
+    background:var(--bg-soft); border:1px solid var(--line-2); border-radius:13px;
+    padding:24px 22px; display:flex; flex-direction:column; transition:.18s ease;
+  }
+  .proj:hover{border-color:var(--purple); transform:translateY(-2px)}
+  .proj h3{margin:0 0 10px; font-size:17px; font-weight:700}
+  .proj h3 a{color:var(--fg)}
+  .proj h3 a:hover{color:var(--blue); text-decoration:none}
+  .proj p{margin:0 0 16px; color:var(--fg-dim); font-size:14.5px; flex:1}
+  .spec{
+    font-family:var(--mono); font-size:12.2px; line-height:1.85; background:#0b0f14;
+    border:1px solid var(--line); border-radius:9px; padding:13px 15px;
+    color:var(--fg-dim); white-space:pre; overflow-x:auto;
+  }
+  .spec .k{color:var(--purple)}
+  .spec .v{color:#c9d1d9}
+  .chip-row{display:flex; gap:8px; flex-wrap:wrap; margin-top:14px}
+  .chip{
+    font-family:var(--mono); font-size:11px; padding:4px 10px; border-radius:6px;
+    background:#0b0f14; border:1px solid var(--line); color:var(--fg-dim);
+  }
+
+  /* timeline */
+  .timeline{position:relative; padding:8px 0 4px}
+  .rail{position:absolute; left:0; right:0; top:34px; height:2px; background:linear-gradient(90deg,var(--blue),var(--purple)); opacity:.42}
+  .rail::after{
+    content:""; position:absolute; inset:0; background:linear-gradient(90deg,var(--blue),var(--purple));
+    transform-origin:left; animation:sweep 7s cubic-bezier(.3,.1,.2,1) infinite;
+  }
+  @keyframes sweep{0%{transform:scaleX(0)}60%,100%{transform:scaleX(1)}}
+  .stops{display:grid; grid-template-columns:repeat(5,1fr); gap:10px; position:relative}
+  .stop{text-align:center}
+  .stop .dot{
+    width:13px; height:13px; border-radius:50%; background:var(--bg);
+    border:2px solid var(--blue); margin:28px auto 16px; position:relative; z-index:1;
+  }
+  .stop .when{font-family:var(--mono); font-size:10.5px; letter-spacing:1.4px; color:var(--blue); font-weight:700}
+  .stop .what{font-size:14px; font-weight:700; margin:4px 0 2px}
+  .stop .detail{font-size:12.5px; color:var(--fg-mute)}
+
+  /* record table */
+  table{width:100%; border-collapse:collapse; font-size:14.5px}
+  th,td{text-align:left; padding:13px 14px; border-bottom:1px solid var(--line)}
+  th{font-family:var(--mono); font-size:11px; letter-spacing:2px; color:var(--fg-mute); font-weight:600}
+  td:first-child{color:var(--fg)}
+  td:last-child{color:var(--fg-dim); font-family:var(--mono); font-size:12.5px}
+  .flag{color:var(--amber); font-weight:700}
+
+  /* principles */
+  .principle{border-left:2px solid var(--line-2); padding:2px 0 2px 20px; margin:0 0 22px}
+  .principle strong{display:block; color:var(--fg); font-size:15px; margin-bottom:3px}
+  .principle span{color:var(--fg-dim); font-size:14.5px}
+
+  /* footer */
+  footer{border-top:1px solid var(--line); padding:52px 0 68px; color:var(--fg-dim)}
+  .links{display:flex; gap:20px; flex-wrap:wrap; margin:0 0 26px; font-size:14.5px}
+  .links a{color:var(--fg-dim)}
+  .links a:hover{color:var(--blue)}
+  .fine{font-size:12.5px; color:var(--fg-mute); font-family:var(--mono)}
+
+  @media(max-width:760px){
+    .stops{grid-template-columns:1fr; gap:0}
+    .rail{display:none}
+    .stop{text-align:left; display:grid; grid-template-columns:auto 1fr; gap:14px; align-items:start; padding:12px 0}
+    .stop .dot{margin:6px 0 0}
+    header.hero{padding:64px 0 48px}
+  }
+  @media(prefers-reduced-motion:reduce){
+    *{animation:none !important; transition:none !important}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="eyebrow">REHAN THEORY LAB</p>
+    <h1>Rehan Muhammad<br><span class="grad">Independent Researcher</span></h1>
+    <p class="lede">
+      I work on two hard problems at once: making <strong>exact computation faster</strong> —
+      NP-complete search, kernel-level memory management — and making it
+      <strong>safe for AI agents to operate real machines</strong>, through bridges with an
+      explicit consent model.
+    </p>
+    <nav class="cta">
+      <a class="btn primary" href="https://github.com/rehantheorylab-pixel">View GitHub</a>
+      <a class="btn" href="mailto:rehan.theorylab@gmail.com">Get in touch</a>
+      <a class="btn" href="https://doi.org/10.5281/zenodo.20399806">Read the DOI</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <section id="research">
+    <div class="wrap">
+      <div class="sec-head"><h2>RESEARCH</h2><div class="rule"></div></div>
+      <div class="grid-3">
+        <article class="card">
+          <div class="num">1</div>
+          <h3>EXACT SEARCH</h3>
+          <p>NP-complete instances solved exactly, faster — by racing independent engines against each other instead of trusting one.</p>
+        </article>
+        <article class="card">
+          <div class="num">2</div>
+          <h3>KERNEL MEMORY</h3>
+          <p>Allocators and page management inside a real RISC-V kernel — lock-free, arena, and slab, integrated into an existing subsystem.</p>
+        </article>
+        <article class="card">
+          <div class="num">3</div>
+          <h3>AGENT ACCESS</h3>
+          <p>Letting an AI agent operate the user's own machine, with consent as a first-class constraint rather than an afterthought.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="work">
+    <div class="wrap">
+      <div class="sec-head"><h2>SELECTED WORK</h2><div class="rule"></div></div>
+      <div class="grid-2">
+
+        <article class="proj">
+          <h3><a href="https://github.com/rehantheorylab-pixel/zpp-subset-sum-solver">Z++ — exact subset-sum solver</a></h3>
+          <p>Races 49 engines — published baselines and original work — and reports which one won. You get the answer, plus evidence for why that technique solved that instance.</p>
+          <pre class="spec"><span class="k">baselines</span>:  Schroeppel–Shamir · MITM · BCJ · HGJ
+<span class="k">original</span>:   GDEP · adaptive partitioning · BigUint
+<span class="k">measured</span>:   n=60 → 524 s (i3-2100) = <span class="v">1,649×</span> vs BCJ
+<span class="k">projected</span>:  n=60 → 24.3 s (Ryzen 9) = 35,556×
+<span class="k">memory</span>:     ~12 GB floor at n=60</pre>
+          <div class="chip-row"><span class="chip">Rust</span><span class="chip">Python</span><span class="chip">MIT</span></div>
+        </article>
+
+        <article class="proj">
+          <h3><a href="https://github.com/rehantheorylab-pixel/browser-bridge-for-muse">browser-bridge-for-muse</a></h3>
+          <p>Gives an AI agent access to the user's own browser and desktop — the sessions they already have — instead of a sterile browser that hits a login wall everywhere.</p>
+          <pre class="spec"><span class="k">engines</span>:    Chrome profile · CDP · patched driver
+<span class="k">interface</span>:  MCP server
+<span class="k">consent</span>:    per-session opt-in, visible, scoped
+<span class="k">never</span>:      credential export, silent operation</pre>
+          <div class="chip-row"><span class="chip">Python</span><span class="chip">MCP</span><span class="chip">Apache-2.0</span></div>
+        </article>
+
+        <article class="proj">
+          <h3><a href="https://github.com/rehantheorylab-pixel/maik">MAIK — Multi-Agent Intelligence Kernel</a></h3>
+          <p>An agent system organised as a company: identities, managers, notebooks, scoped permissions, and prompts generated at runtime from each node's own context.</p>
+          <pre class="spec"><span class="k">structure</span>:  CEO → manager → agent → sub-agent
+<span class="k">routing</span>:    domain → model, chosen from grades
+<span class="k">execution</span>:  mouse, keyboard, screen, browser
+<span class="k">status</span>:     research prototype — graders internal</pre>
+          <div class="chip-row"><span class="chip">Python</span><span class="chip">agents</span><span class="chip">MIT</span></div>
+        </article>
+
+        <article class="proj">
+          <h3><a href="https://github.com/rehantheorylab-pixel/zpp_unix">ZPP Unix — RISC-V kernel</a></h3>
+          <p>A RISC-V kernel extended with lock-free, arena, and slab allocators integrated into an existing memory subsystem. A fork of caffeinix, credited as such in the first line.</p>
+          <pre class="spec"><span class="k">upstream</span>:   caffeinix · Troy Mitchell · GPL-3.0
+<span class="k">added</span>:      lock_free.c · arena.c · slab.c · palloc.c
+<span class="k">scope</span>:      ~390 lines into a ~7,500-line kernel</pre>
+          <div class="chip-row"><span class="chip">C</span><span class="chip">RISC-V</span><span class="chip">GPL-3.0</span></div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="timeline">
+    <div class="wrap">
+      <div class="sec-head"><h2>TIMELINE</h2><div class="rule"></div></div>
+      <div class="timeline">
+        <div class="rail"></div>
+        <div class="stops">
+          <div class="stop"><div class="dot"></div><div class="when">MAY 2026</div><div class="what">Z++ solver</div><div class="detail">Zenodo DOI archived</div></div>
+          <div class="stop"><div class="dot"></div><div class="when">JUL 2026</div><div class="what">RISC-V allocators</div><div class="detail">lock-free · arena · slab</div></div>
+          <div class="stop"><div class="dot"></div><div class="when">AUG 2026</div><div class="what">MAIK</div><div class="detail">multi-agent kernel</div></div>
+          <div class="stop"><div class="dot"></div><div class="when">SEP 2026</div><div class="what">KiloChat</div><div class="detail">gateway client</div></div>
+          <div class="stop"><div class="dot"></div><div class="when">OCT 2026</div><div class="what">Agent bridge</div><div class="detail">consent model</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="record">
+    <div class="wrap">
+      <div class="sec-head"><h2>RECORD</h2><div class="rule"></div></div>
+      <table>
+        <thead><tr><th>Artifact</th><th>Evidence</th></tr></thead>
+        <tbody>
+          <tr><td>Z++ — 49 engines, MIT licence</td><td>repository</td></tr>
+          <tr><td>n=60 → 524 s on i3-2100, 1,649× vs BCJ</td><td>measured, not projected</td></tr>
+          <tr><td>n=60 → 24.3 s on Ryzen 9</td><td><span class="flag">projection — not yet measured</span></td></tr>
+          <tr><td>caffeinix fork: 3 allocators, +391 / −164 lines</td><td>commit 329116b</td></tr>
+          <tr><td>DOI archived</td><td>10.5281/zenodo.20399806</td></tr>
+          <tr><td>ORCID</td><td>0009-0003-8748-6524</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="how">
+    <div class="wrap">
+      <div class="sec-head"><h2>HOW I WORK</h2><div class="rule"></div></div>
+      <p class="principle"><strong>Measure, then claim.</strong><span>Every number carries the machine it ran on and whether it was measured or projected. A ratio computed from two estimates is labelled an estimate.</span></p>
+      <p class="principle"><strong>Credit upstream.</strong><span>A fork says what it is forked from in the first line. Attribution is a licence obligation under GPL, and a credibility requirement under everything else.</span></p>
+      <p class="principle"><strong>State the limit.</strong><span>If it isn't tested, the README says so before the reader finds out. Limitations sections are cheaper than retractions.</span></p>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="links">
+      <a href="https://github.com/rehantheorylab-pixel">GitHub</a>
+      <a href="https://dev.to/rehantheorylabpixel">Writing</a>
+      <a href="https://orcid.org/0009-0003-8748-6524">ORCID</a>
+      <a href="https://doi.org/10.5281/zenodo.20399806">Zenodo</a>
+      <a href="https://huggingface.co/12rehdsa">HuggingFace</a>
+      <a href="mailto:rehan.theorylab@gmail.com">Email</a>
+    </div>
+    <p class="fine">Rehan Muhammad · Rehan Theory Lab · Open to remote contracts</p>
+  </div>
+</footer>
+
+</body>
+</html>
