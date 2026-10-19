@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Rehan Theory Lab — Rehan Muhammad
+Sitemap: https://rehantheorylab-pixel.github.io/sitemap.xml

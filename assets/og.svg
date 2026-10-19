@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="Rehan Muhammad — Independent Researcher">
+  <style>
+    .eyebrow { font-family: 'SFMono-Regular', Consolas, monospace; font-size: 15px; font-weight: 700; letter-spacing: 7px; fill: #8b949e; }
+    .name    { font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; font-size: 76px; font-weight: 700; letter-spacing: 1px; fill: #e6edf3; }
+    .role    { font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; font-size: 34px; font-weight: 700; letter-spacing: 2px; fill: #58a6ff; }
+    .tag     { font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; font-size: 21px; letter-spacing: .4px; fill: #8b949e; }
+    .chip    { font-family: 'SFMono-Regular', Consolas, monospace; font-size: 16px; fill: #9ba3ae; }
+    .url     { font-family: 'SFMono-Regular', Consolas, monospace; font-size: 17px; fill: #6e7681; letter-spacing: .5px; }
+  </style>
+  <defs>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%"   stop-color="#58a6ff"/>
+      <stop offset="100%" stop-color="#a371f7"/>
+    </linearGradient>
+    <radialGradient id="halo" cx="50%" cy="50%" r="50%">
+      <stop offset="0%"   stop-color="#58a6ff" stop-opacity="0.30"/>
+      <stop offset="100%" stop-color="#58a6ff" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="halo2" cx="50%" cy="50%" r="50%">
+      <stop offset="0%"   stop-color="#a371f7" stop-opacity="0.26"/>
+      <stop offset="100%" stop-color="#a371f7" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="dots" width="26" height="26" patternUnits="userSpaceOnUse">
+      <circle cx="1.6" cy="1.6" r="1.15" fill="#21262d"/>
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="630" fill="#0d1117"/>
+  <rect width="1200" height="630" fill="url(#dots)"/>
+  <circle cx="120" cy="70" r="240" fill="url(#halo)"/>
+  <circle cx="1080" cy="580" r="260" fill="url(#halo2)"/>
+  <rect x="0" y="0" width="1200" height="4" fill="url(#accent)"/>
+
+  <text x="90" y="150" class="eyebrow">REHAN THEORY LAB</text>
+
+  <text x="90" y="270" class="name">Rehan Muhammad</text>
+  <text x="90" y="330" class="role">Independent Researcher</text>
+
+  <rect x="90" y="368" width="420" height="2" fill="url(#accent)" opacity="0.8"/>
+
+  <text x="90" y="424" class="tag">Exact algorithms · Systems programming · Agent infrastructure</text>
+  <text x="90" y="462" class="tag">Author of Z++ — a 49-engine exact subset-sum solver</text>
+
+  <g>
+    <rect x="90" y="508" width="196" height="42" rx="8" fill="#161b22" stroke="#30363d"/>
+    <text x="188" y="535" text-anchor="middle" class="chip">49 engines</text>
+
+    <rect x="300" y="508" width="212" height="42" rx="8" fill="#161b22" stroke="#30363d"/>
+    <text x="406" y="535" text-anchor="middle" class="chip">1,649x measured</text>
+
+    <rect x="526" y="508" width="170" height="42" rx="8" fill="#161b22" stroke="#30363d"/>
+    <text x="611" y="535" text-anchor="middle" class="chip">MIT licence</text>
+  </g>
+
+  <text x="90" y="592" class="url">rehantheorylab-pixel.github.io</text>
+
+  <rect x="1" y="1" width="1198" height="628" fill="none" stroke="#21262d" stroke-width="2"/>
+</svg>
